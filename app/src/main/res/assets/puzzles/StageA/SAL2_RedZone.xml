@@ -1,0 +1,7 @@
+<PuzzleData name="SAL2_RedZone" bronze="3"
+    colours="3333333333333333333333333333333333322222222223333332222222222333333222222222233333322222222223333332222222222333333222222222233333333333333333333333333333333333"
+    gold="1" height="10" numColours="4" silver="2" width="16">
+    <Solution length="1">
+        <Turn colour="3" x="8" y="4" />
+    </Solution>
+</PuzzleData>

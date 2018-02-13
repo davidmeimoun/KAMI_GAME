@@ -1,0 +1,9 @@
+<PuzzleData name="SBL1_NewColour" bronze="5"
+    colours="2222224443322222222222444332222222222244433222222222224443322222222212444332222222211244433222222211111111111122222112444332222222221244433222222222224443322222"
+    gold="3" height="10" numColours="4" silver="4" width="16">
+    <Solution length="3">
+        <Turn colour="2" x="13" y="6" />
+        <Turn colour="3" x="13" y="6" />
+        <Turn colour="4" x="13" y="6" />
+    </Solution>
+</PuzzleData>

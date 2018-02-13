@@ -1,0 +1,13 @@
+<PuzzleData name="SEL8_SevenMoves" bronze="9"
+    colours="2233234443434433233333433333434433342233432233434444232233232233432233234433232233234433434433232233432233432243234433234433234433432233432233432233234433244433"
+    gold="7" height="10" numColours="4" silver="8" width="16">
+    <Solution length="7">
+        <Turn colour="4" x="6" y="5" /><!-- (6, 5)-->
+        <Turn colour="3" x="4" y="6" /><!-- (6, 5)-->
+        <Turn colour="4" x="8" y="1" /><!-- (6, 5)-->
+        <Turn colour="3" x="3" y="6" /><!-- (6, 5)-->
+        <Turn colour="2" x="10" y="0" /><!-- (6, 5)-->
+        <Turn colour="4" x="4" y="6" /><!-- (6, 5)-->
+        <Turn colour="3" x="6" y="5" /><!-- (6, 5)-->
+    </Solution>
+</PuzzleData>

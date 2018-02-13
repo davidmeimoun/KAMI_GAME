@@ -1,0 +1,12 @@
+<PuzzleData name="!NewLevel"
+    colours="1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+    gold="6" height="10" numColours="5" silver="7" theme="theme5Col" width="16">
+    <Solution length="6">
+        <Turn colour="4" num="88" /><!-- (8,5)-->
+        <Turn colour="3" num="88" /><!-- (8,5)-->
+        <Turn colour="2" num="88" /><!-- (8,5)-->
+        <Turn colour="3" num="88" /><!-- (8,5)-->
+        <Turn colour="4" num="88" /><!-- (8,5)-->
+        <Turn colour="1" num="88" /><!-- (8,5)-->
+    </Solution>
+</PuzzleData>

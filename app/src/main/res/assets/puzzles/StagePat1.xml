@@ -1,0 +1,12 @@
+<StageData name="Pat1" displayName="Noughts &amp; Crosseyes"
+    iapName="com.stateofplaygames.kami.pack_naughtscrosses" order="2" theme="themePat2">
+    <Puzzle name="SP1L1_FlatRings" />
+    <Puzzle name="SP1L2_Birthday" />
+    <Puzzle name="SP1L3_Boxes2" />
+    <Puzzle name="SP1L4_NewPipe" />
+    <Puzzle name="SP1L5_Distract2" />
+    <Puzzle name="SP1L6_Ladders" />
+    <Puzzle name="SP1L7_Checks" />
+    <Puzzle name="SP1L8_NewLoops" />
+    <Puzzle name="SP1L9_NewCross" />
+</StageData>

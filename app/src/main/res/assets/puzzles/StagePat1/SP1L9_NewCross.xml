@@ -1,0 +1,11 @@
+<PuzzleData name="SP1L9_NewCross" bronze="7"
+    colours="1221414422121131424444444442444412214112212213311133443323233313333144122122133311214122141211314424442444424434112141221144413133334332231213331221411223333331"
+    gold="5" height="10" numColours="4" silver="6" width="16">
+    <Solution length="5">
+        <Turn colour="4" x="10" y="3" />
+        <Turn colour="3" x="4" y="3" />
+        <Turn colour="2" x="7" y="3" />
+        <Turn colour="4" x="7" y="3" />
+        <Turn colour="1" x="7" y="3" />
+    </Solution>
+</PuzzleData>

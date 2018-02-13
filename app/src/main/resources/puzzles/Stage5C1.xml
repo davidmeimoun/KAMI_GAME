@@ -1,0 +1,12 @@
+<StageData name="5C1" displayName="5 Color Retro" iapName="com.stateofplaygames.kami.pack_5colours1"
+    order="1" theme="theme5Col">
+    <Puzzle name="S5C1L1_Diag1" />
+    <Puzzle name="S5C1L2_Diag2" />
+    <Puzzle name="S5C1L3_Diag3" />
+    <Puzzle name="S5C1L4_Loops1" />
+    <Puzzle name="S5C1L5_Loops2" />
+    <Puzzle name="S5C1L6_Loops3" />
+    <Puzzle name="S5C1L7_Strips1" />
+    <Puzzle name="S5C1L8_Strips2" />
+    <Puzzle name="S5C1L9_Strips3" />
+</StageData>

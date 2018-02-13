@@ -1,0 +1,12 @@
+<PuzzleData name="SCL7_MoreLoops" bronze="7"
+    colours="4444333333341114444434442232221244113144243411124414313323344442221241442111444224121144212222222442444441414333222233444141434344434344414143434443334441114333"
+    gold="5" height="10" numColours="4" silver="6" width="16">
+    <Solution length="5">
+        <Turn colour="4" x="9" y="5" />
+        <Turn colour="3" x="7" y="7" />
+        <Turn colour="1" x="10" y="8" />
+        <Turn colour="2" x="10" y="8" />
+        <Turn colour="4" x="10" y="8" />
+    </Solution>
+</PuzzleData>
+

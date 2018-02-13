@@ -1,0 +1,10 @@
+<PuzzleData name="SBL7_TwoSlash" bronze="6"
+    colours="1111111121111111111111141111111111111121111131311111121211111311111141114111313111121111121111111121131311211111121111311112111121111313111121111111111111111211"
+    gold="4" height="10" numColours="4" silver="5" width="16">
+    <Solution length="4">
+        <Turn colour="1" x="6" y="2" />
+        <Turn colour="4" x="3" y="1" />
+        <Turn colour="2" x="3" y="1" />
+        <Turn colour="3" x="3" y="1" />
+    </Solution>
+</PuzzleData>

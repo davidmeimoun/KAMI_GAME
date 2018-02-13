@@ -1,0 +1,7 @@
+<PuzzleGroup name="GroupClassic" unlockType="sequence">
+    <Stage name="A" />
+    <Stage name="B" />
+    <Stage name="C" />
+    <Stage name="D" />
+    <Stage name="E" />
+</PuzzleGroup>

@@ -1,0 +1,9 @@
+<PuzzleData name="SP1L4_NewPipe" bronze="5"
+    colours="1111111111444444133313443123334413233333314344411322424231234411114333333133322121232323223242114114331133334431441422132232421141111113331313312442421111111111"
+    gold="3" height="10" numColours="4" silver="4" width="16">
+    <Solution length="3">
+        <Turn colour="3" x="6" y="6" />
+        <Turn colour="4" x="6" y="4" />
+        <Turn colour="2" x="6" y="4" />
+    </Solution>
+</PuzzleData>

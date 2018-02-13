@@ -1,0 +1,11 @@
+<StageData name="C" order="3" theme="theme3">
+    <Puzzle name="SCL1_FirstPipes" />
+    <Puzzle name="SCL2_HollowPipes" />
+    <Puzzle name="SCL3_AnnoyingPipes" />
+    <Puzzle name="SCL4_TangledPipes" />
+    <Puzzle name="SCL5_ReallyTricky" />
+    <Puzzle name="SCL6_FirstLoops" />
+    <Puzzle name="SCL7_MoreLoops" />
+    <Puzzle name="SCL8_LongLoop" />
+    <Puzzle name="SCL9_LoopyLoops" />
+</StageData>

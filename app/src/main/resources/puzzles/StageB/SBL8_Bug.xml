@@ -1,0 +1,13 @@
+<PuzzleData name="SBL8_Bug" bronze="9"
+    colours="3333321111233333322422111122422332242111111242233443233443323443311131122113111331113112211311131443133443313441322411111111422312241111111142211131311111131311"
+    gold="7" height="10" numColours="4" silver="8" width="16">
+    <Solution length="7">
+        <Turn colour="3" x="7" y="8" />
+        <Turn colour="1" x="10" y="8" />
+        <Turn colour="3" x="3" y="5" />
+        <Turn colour="2" x="13" y="5" />
+        <Turn colour="3" x="7" y="8" />
+        <Turn colour="1" x="7" y="8" />
+        <Turn colour="4" x="7" y="8" />
+    </Solution>
+</PuzzleData>

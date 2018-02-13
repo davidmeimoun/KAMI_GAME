@@ -1,0 +1,11 @@
+<PuzzleData name="SDL7_road1" bronze="7"
+    colours="1111134311141411222222222224442223232323232414232222222222244422111113431114141111111333111444112222234322222222232323332323232322222343222222221111133311144411"
+    gold="5" height="10" numColours="4" silver="6" width="16">
+    <Solution length="5">
+        <Turn colour="2" x="13" y="3" />
+        <Turn colour="2" x="5" y="4" />
+        <Turn colour="3" x="2" y="2" />
+        <Turn colour="4" x="6" y="2" />
+        <Turn colour="1" x="6" y="2" />
+    </Solution>
+</PuzzleData>

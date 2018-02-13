@@ -1,0 +1,10 @@
+<PuzzleData name="SCL6_FirstLoops" bronze="5"
+    colours="4444444444444444411111143333344441444414344434444142222222443444414244143244344441424414333334444111111442411114444244444241441444422222224111144444444444444444"
+    gold="3" height="10" numColours="4" silver="4" width="16">
+    <Solution length="3">
+        <Turn colour="2" x="8" y="1" />
+        <Turn colour="1" x="8" y="4" />
+        <Turn colour="4" x="1" y="1" />
+    </Solution>
+</PuzzleData>
+

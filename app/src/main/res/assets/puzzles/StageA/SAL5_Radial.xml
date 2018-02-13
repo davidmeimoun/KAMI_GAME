@@ -1,0 +1,11 @@
+<PuzzleData name="SAL5_Radial" bronze="7"
+    colours="3331133322222333331133322333223331133322331332231133322331113322133322331131133233322331132311331333223311311332113332233111332231133322331332233311333223332233"
+    gold="5" height="10" numColours="4" silver="6" width="16">
+    <Solution length="5">
+        <Turn colour="3" x="10" y="3" />
+        <Turn colour="2" x="8" y="5" />
+        <Turn colour="3" x="10" y="5" />
+        <Turn colour="3" x="4" y="0" />
+        <Turn colour="3" x="3" y="9" />
+    </Solution>
+</PuzzleData>

@@ -1,0 +1,25 @@
+<PuzzleData name="SConvL9" bronze="21"
+    colours="1134415234224125231324124253345151413545242135413524132413545334135131354135423151354353242134513214354151531244324553151344312454352153413243214553153534134313"
+    gold="19" height="10" numColours="4" silver="20" width="16">
+    <Solution>
+        <Turn colour="1" x="8" y="6" />
+        <Turn colour="4" x="7" y="6" />
+        <Turn colour="5" x="6" y="6" />
+        <Turn colour="3" x="5" y="6" />
+        <Turn colour="4" x="4" y="6" />
+        <Turn colour="1" x="3" y="6" />
+        <Turn colour="5" x="2" y="6" />
+        <Turn colour="3" x="3" y="6" />
+        <Turn colour="1" x="3" y="7" />
+        <Turn colour="5" x="5" y="6" />
+        <Turn colour="4" x="5" y="5" />
+        <Turn colour="2" x="4" y="5" />
+        <Turn colour="4" x="3" y="6" />
+        <Turn colour="1" x="4" y="6" />
+        <Turn colour="3" x="7" y="7" />
+        <Turn colour="4" x="10" y="6" />
+        <Turn colour="1" x="6" y="7" />
+        <Turn colour="2" x="7" y="7" />
+        <Turn colour="5" x="9" y="7" />
+    </Solution>
+</PuzzleData>

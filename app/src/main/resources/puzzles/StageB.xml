@@ -1,0 +1,11 @@
+<StageData name="B" order="2" theme="theme2">
+    <Puzzle name="SBL1_NewColour" />
+    <Puzzle name="SBL2_Walls" />
+    <Puzzle name="SBL3_Blockage" />
+    <Puzzle name="SBL4_FirstSlash" />
+    <Puzzle name="SBL5_FordwardSlash" />
+    <Puzzle name="SBL6_ColonSlashSlash" />
+    <Puzzle name="SBL7_TwoSlash" />
+    <Puzzle name="SBL8_Bug" />
+    <Puzzle name="SBL9_SplattedBug" />
+</StageData>

@@ -1,0 +1,14 @@
+<PuzzleData name="SDL9_art3" bronze="11"
+    colours="3222322222324123322232223232142323332223232341322222222323221422222332232322412222322322322214222232232222224122141414141414141441414141414141412223322222221422"
+    gold="8" height="10" numColours="4" silver="9" width="16">
+    <Solution length="9">
+        <Turn colour="1" x="13" y="7" />
+        <Turn colour="4" x="13" y="7" />
+        <Turn colour="1" x="13" y="7" />
+        <Turn colour="2" x="11" y="7" />
+        <Turn colour="3" x="14" y="6" />
+        <Turn colour="2" x="14" y="6" />
+        <Turn colour="4" x="4" y="4" />
+        <Turn colour="1" x="4" y="4" />
+    </Solution>
+</PuzzleData>

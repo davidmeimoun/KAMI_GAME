@@ -1,0 +1,15 @@
+<PuzzleData name="SConvL5" bronze="11"
+    colours="5544422332141454515312244223211411355522445555155332523324222125235155143111343441223554131244514424455122244451122541455333455541221124434432235422422333444113"
+    gold="9" height="10" numColours="4" silver="10" width="16">
+    <Solution>
+        <Turn colour="1" x="8" y="6" />
+        <Turn colour="4" x="7" y="6" />
+        <Turn colour="5" x="7" y="6" />
+        <Turn colour="1" x="5" y="6" />
+        <Turn colour="3" x="5" y="6" />
+        <Turn colour="2" x="5" y="5" />
+        <Turn colour="1" x="3" y="2" />
+        <Turn colour="4" x="7" y="5" />
+        <Turn colour="5" x="7" y="6" />
+    </Solution>
+</PuzzleData>

@@ -1,0 +1,9 @@
+<PuzzleData name="SBL2_Walls" bronze="5"
+    colours="1111114114111111111111411411111111122233332221111112223333222111111222333322211111122233332221111112223333222111111222333322211111111141141111111111114114111111"
+    gold="3" height="10" numColours="4" silver="4" width="16">
+    <Solution length="3">
+        <Turn colour="4" x="7" y="4" />
+        <Turn colour="2" x="7" y="6" />
+        <Turn colour="1" x="5" y="6" />
+    </Solution>
+</PuzzleData>

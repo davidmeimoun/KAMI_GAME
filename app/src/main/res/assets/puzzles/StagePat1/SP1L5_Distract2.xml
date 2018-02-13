@@ -1,0 +1,9 @@
+<PuzzleData name="SP1L5_Distract2" bronze="5"
+    colours="3343434343434443344413131313143333443434343433433433333333333433334314343434334334334343434134333343333333333343343334343434343333441313131314433443434343434433"
+    gold="3" height="10" numColours="4" silver="4" width="16">
+    <Solution length="4">
+        <Turn colour="1" x="4" y="3" /><!-- (1, 1)-->
+        <Turn colour="4" x="10" y="4" /><!-- (1, 1)-->
+        <Turn colour="3" x="6" y="4" /><!-- (1, 1)-->
+    </Solution>
+</PuzzleData>

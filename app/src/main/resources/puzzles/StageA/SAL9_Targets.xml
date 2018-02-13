@@ -1,0 +1,10 @@
+<PuzzleData name="SAL9_Targets" bronze="6"
+    colours="1111111111111111122222221111133112111112111113311212221211111111121232121133333112123212113111311212221211312131121111121131113112222222113333311111111111111111"
+    gold="4" height="10" numColours="4" silver="5" width="16">
+    <Solution length="4">
+        <Turn colour="1" x="10" y="6" />
+        <Turn colour="2" x="9" y="4" />
+        <Turn colour="2" x="4" y="2" />
+        <Turn colour="3" x="9" y="4" />
+    </Solution>
+</PuzzleData>

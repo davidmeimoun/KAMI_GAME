@@ -1,0 +1,11 @@
+<PuzzleData name="S5C1L7_Strips1" bronze="7"
+    colours="5555555535251545555555553525154544444444444414445555555535251545111111113111111155555555352515453333333333233343555555553525154522222222322212425555555535251545"
+    gold="5" height="10" numColours="4" silver="6" width="16">
+    <Solution length="6">
+        <Turn colour="4" x="10" y="4" />
+        <Turn colour="3" x="10" y="2" />
+        <Turn colour="2" x="4" y="6" />
+        <Turn colour="1" x="10" y="4" />
+        <Turn colour="5" x="10" y="4" />
+    </Solution>
+</PuzzleData>

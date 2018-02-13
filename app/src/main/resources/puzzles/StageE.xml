@@ -1,0 +1,11 @@
+<StageData name="E" order="5" theme="theme1">
+    <Puzzle name="SEL1_BlackWave" />
+    <Puzzle name="SEL2_BrokenWave" />
+    <Puzzle name="SEL3_FullWave" />
+    <Puzzle name="SEL4_RAngleStart" />
+    <Puzzle name="SEL5_RAngleMore" />
+    <Puzzle name="SEL6_RAngleMessy" />
+    <Puzzle name="SEL7_FifteenMoves" />
+    <Puzzle name="SEL8_SevenMoves" />
+    <Puzzle name="SEL9_SevenMovesBlack" />
+</StageData>

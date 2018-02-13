@@ -1,0 +1,10 @@
+<PuzzleData name="SCL2_HollowPipes" bronze="5"
+    colours="2444244444444444224224443334222442224444343424244424444434341424442411143414142444241414341114244224141434444424424414141444422242221411144422424444444444442444"
+    gold="3" height="10" numColours="4" silver="4" width="16">
+    <Solution length="3">
+        <Turn colour="1" x="8" y="3" />
+        <Turn colour="2" x="8" y="3" />
+        <Turn colour="4" x="8" y="3" />
+    </Solution>
+</PuzzleData>
+

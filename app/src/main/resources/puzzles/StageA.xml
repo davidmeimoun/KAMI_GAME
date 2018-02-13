@@ -1,0 +1,11 @@
+<StageData name="A" order="1" theme="theme1_three">
+    <Puzzle name="SAL1_TwoSides" />
+    <Puzzle name="SAL2_RedZone" />
+    <Puzzle name="SAL3_Joining" />
+    <Puzzle name="SAL4_Rings" />
+    <Puzzle name="SAL5_Radial" />
+    <Puzzle name="SAL6_SideFlow" />
+    <Puzzle name="SAL7_TheBend" />
+    <Puzzle name="SAL8_LadderLines" />
+    <Puzzle name="SAL9_Targets" />
+</StageData>

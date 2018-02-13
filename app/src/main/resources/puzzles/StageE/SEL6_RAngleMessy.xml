@@ -1,0 +1,12 @@
+<PuzzleData name="SEL6_RAngleMessy" bronze="8"
+    colours="4411114413444344441433331112222242123222434243444414311233424344244431424112111121114442414243442442224241444344221442333133222444144242414444244411424444444424"
+    gold="6" height="10" numColours="4" silver="7" width="16">
+    <Solution length="6">
+        <Turn colour="1" x="11" y="1" /><!-- (11,1)-->
+        <Turn colour="3" x="11" y="3" /><!-- (11,1)-->
+        <Turn colour="2" x="8" y="7" /><!-- (11,1)-->
+        <Turn colour="2" x="1" y="1" /><!-- (0,0)-->
+        <Turn colour="1" x="1" y="1" /><!-- (11,1)-->
+        <Turn colour="4" x="1" y="1" /><!-- (11,1)-->
+    </Solution>
+</PuzzleData>

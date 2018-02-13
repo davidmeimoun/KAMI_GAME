@@ -1,0 +1,11 @@
+<StageData name="D" order="4" theme="theme4">
+    <Puzzle name="SDL1_cross1" />
+    <Puzzle name="SDL2_cross2" />
+    <Puzzle name="SDL3_cross3" />
+    <Puzzle name="SDL4_cross4" />
+    <Puzzle name="SDL5_cross5" />
+    <Puzzle name="SDL6_cross6" />
+    <Puzzle name="SDL7_road1" />
+    <Puzzle name="SDL8_art2" />
+    <Puzzle name="SDL9_art3" />
+</StageData>

@@ -1,0 +1,9 @@
+<PuzzleData name="SP1L1_FlatRings" bronze="5"
+    colours="4444444444444444444441111144444444444144414443334333414441222333434322222224233343432222222423334333414441222333444441444144433344444111114444444444444444444444"
+    gold="3" height="10" numColours="4" silver="4" width="16">
+    <Solution length="3">
+        <Turn colour="1" x="4" y="4" /><!-- (4, 4)-->
+        <Turn colour="3" x="12" y="4" /><!-- (4, 4)-->
+        <Turn colour="4" x="4" y="4" /><!-- (4, 4)-->
+    </Solution>
+</PuzzleData>

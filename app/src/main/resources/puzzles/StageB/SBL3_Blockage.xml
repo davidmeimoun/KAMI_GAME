@@ -1,0 +1,10 @@
+<PuzzleData name="SBL3_Blockage" bronze="6"
+    colours="1111111222222222122211134443222212223333444333331333222222233333133322222223333311114111111111113333222112221111333322211222111122223331111114442222333111111444"
+    gold="4" height="10" numColours="4" silver="5" width="16">
+    <Solution length="4">
+        <Turn colour="1" x="4" y="5" />
+        <Turn colour="3" x="9" y="8" />
+        <Turn colour="2" x="13" y="4" />
+        <Turn colour="4" x="10" y="6" />
+    </Solution>
+</PuzzleData>

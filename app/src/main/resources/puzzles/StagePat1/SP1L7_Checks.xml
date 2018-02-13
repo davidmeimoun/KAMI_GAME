@@ -1,0 +1,14 @@
+<PuzzleData name="SP1L7_Checks" bronze="10"
+    colours="3322233143333433322222341333444333222331433334333332333413333332414141414141414114141414141414142333233143333332332333241233323332323231432322233323323413233233"
+    gold="8" height="10" numColours="2" silver="9" width="16">
+    <Solution length="8">
+        <Turn colour="1" x="7" y="5" />
+        <Turn colour="4" x="7" y="5" />
+        <Turn colour="1" x="7" y="5" />
+        <Turn colour="3" x="6" y="4" />
+        <Turn colour="2" x="4" y="3" />
+        <Turn colour="3" x="7" y="5" />
+        <Turn colour="1" x="4" y="3" />
+        <Turn colour="4" x="7" y="5" />
+    </Solution>
+</PuzzleData>

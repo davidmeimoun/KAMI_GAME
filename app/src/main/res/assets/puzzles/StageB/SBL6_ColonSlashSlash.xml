@@ -1,0 +1,10 @@
+<PuzzleData name="SBL6_ColonSlashSlash" bronze="6"
+    colours="1144111121121111114411121121111122111141121111112211121141111111111121121111111111121121111111111121121111113131121121111111131111121111111131311121111111111111"
+    gold="4" height="10" numColours="4" silver="5" width="16">
+    <Solution length="4">
+        <Turn colour="4" x="3" y="3" />
+        <Turn colour="1" x="7" y="3" />
+        <Turn colour="2" x="9" y="7" />
+        <Turn colour="3" x="9" y="7" />
+    </Solution>
+</PuzzleData>

@@ -1,0 +1,7 @@
+<PuzzleData name="SAL1_TwoSides" bronze="3"
+    colours="1111111122222222111111112222222211111111222222221111111122222222111111112222222211111111222222221111111122222222111111112222222211111111222222221111111122222222"
+    gold="1" height="10" numColours="4" silver="2" width="16">
+    <Solution length="1">
+        <Turn colour="1" x="12" y="4" />
+    </Solution>
+</PuzzleData>

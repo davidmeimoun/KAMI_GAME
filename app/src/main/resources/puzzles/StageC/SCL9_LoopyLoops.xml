@@ -1,0 +1,12 @@
+<PuzzleData name="SCL9_LoopyLoops" bronze="7"
+    colours="4112222111111333414244244222234331324323333343333142232442434241314343333233424131131111121111113422223333334244333342344222221444244233333314144422224444441114"
+    gold="5" height="10" numColours="4" silver="6" width="16">
+    <Solution length="5">
+        <Turn colour="3" x="10" y="5" />
+        <Turn colour="2" x="15" y="2" />
+        <Turn colour="1" x="10" y="6" />
+        <Turn colour="3" x="1" y="2" />
+        <Turn colour="4" x="10" y="6" />
+    </Solution>
+</PuzzleData>
+

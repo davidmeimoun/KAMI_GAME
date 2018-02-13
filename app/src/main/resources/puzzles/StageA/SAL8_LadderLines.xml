@@ -1,0 +1,10 @@
+<PuzzleData name="SAL8_LadderLines" bronze="6"
+    colours="2233311333312213223331132231221322333113223122132233311333312213223331132231221322333113223122132233311333312213223331132231221322333113223122132233311333312213"
+    gold="4" height="10" numColours="4" silver="5" width="16">
+    <Solution length="4">
+        <Turn colour="1" x="8" y="3" />
+        <Turn colour="1" x="12" y="6" />
+        <Turn colour="3" x="10" y="6" />
+        <Turn colour="2" x="4" y="6" />
+    </Solution>
+</PuzzleData>

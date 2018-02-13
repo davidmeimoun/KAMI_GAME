@@ -1,0 +1,14 @@
+<PuzzleData name="SEL7_FifteenMoves" bronze="10"
+    colours="2233234433434433234433434433434433432233432233434433232233232233432233234433232233234433434433232233432233432233234433234433234433432233432233432233234433234433"
+    gold="8" height="10" numColours="4" silver="9" width="16">
+    <Solution length="8">
+        <Turn colour="3" x="8" y="4" /><!-- (8, 4)-->
+        <Turn colour="4" x="10" y="4" /><!-- (8, 4)-->
+        <Turn colour="3" x="4" y="5" /><!-- (8, 4)-->
+        <Turn colour="2" x="8" y="4" /><!-- (8, 4)-->
+        <Turn colour="3" x="10" y="4" /><!-- (8, 4)-->
+        <Turn colour="4" x="8" y="4" /><!-- (8, 4)-->
+        <Turn colour="3" x="8" y="4" /><!-- (8, 4)-->
+        <Turn colour="2" x="8" y="4" /><!-- (8, 4)-->
+    </Solution>
+</PuzzleData>
