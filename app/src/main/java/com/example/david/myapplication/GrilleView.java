@@ -20,6 +20,8 @@ import java.util.List;
 public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
     private int nombreDeCoupJoue = 0;
     private List<int[][]>  coupPrecedent = new ArrayList<int[][]>();
+
+    private List<int[][]>  coupSuivant = new ArrayList<int[][]>();
     Canvas canvas;
     private int height;
     private int width;
@@ -59,6 +61,7 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         remplirTableau();
         recupererNombreDeCouleurs();
 
+
     }
 
     @Override
@@ -81,6 +84,8 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         Toast toast = Toast.makeText(context, text, duration);
         //  toast.show();
 
+
+
     }
 
     @Override
@@ -100,6 +105,7 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
 
         press(event.getX(), event.getY());
         return super.onTouchEvent(event);
+
     }
 
     public void press(float x, float y) {
@@ -119,8 +125,13 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
             }
         } else  {
             ChoisirLeChangementDeCouleur(x,y);
-            if(!coupPrecedent.isEmpty())
-            choisirLeRetourEnArriere(x,y);
+        //    if(!coupPrecedent.isEmpty()) {
+                //   choisirLeRetourEnArriere(x,y);
+                if(!leJeuEstTermine()) {
+                    solve();
+                    choisirLeCoupSuivant(x, y);
+                }
+          //  }
         }
 
     }
@@ -128,16 +139,33 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
     private void choisirLeRetourEnArriere(float x, float y) {
         int tailleCarree = (int) ((double) widthTailleEcran / 10.6666);
         int i = 0;
-            if (x > widthTailleEcran - tailleCarree ) {
-                CharSequence text = "Bravo, vous avez retournez en arriere";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-                tableau =  coupPrecedent.get(coupPrecedent.size()-1);
-                coupPrecedent.remove(coupPrecedent.size()-1);
-                nombreDeCoupJoue--;
-                surfaceCreated(this.getHolder());
-            }
+        if (x > widthTailleEcran - tailleCarree ) {
+            CharSequence text = "Bravo, vous avez retournez en arriere";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            tableau =  coupPrecedent.get(coupPrecedent.size()-1);
+            coupPrecedent.remove(coupPrecedent.size()-1);
+            nombreDeCoupJoue--;
+            surfaceCreated(this.getHolder());
+        }
+
+    }
+
+
+    private void choisirLeCoupSuivant(float x, float y) {
+        int tailleCarree = (int) ((double) widthTailleEcran / 10.6666);
+        int i = 0;
+        if (x > widthTailleEcran - tailleCarree ) {
+            CharSequence text = "Bravo, vous avez joué le prochain coup";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            tableau =  coupSuivant.get(0);
+            coupSuivant.remove(0);
+            nombreDeCoupJoue++;
+            surfaceCreated(this.getHolder());
+        }
 
     }
 
@@ -147,7 +175,7 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         int i = 0;
         for (int couleur : nombreDeCouleus) {
             if (x > 5 + i && x <tailleCarree + i) {
-                    couleurSelectionne = couleur;
+                couleurSelectionne = couleur;
 
             }
             i += 200;
@@ -172,17 +200,14 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         if(posI-1 > 0 &&tableau[posI-1][posJ] == couleurPosition){
             tableau[posI-1][posJ] = couleurSelectionne;
             modifierLaCouleurParLaCouleurSelectionnee(couleurSelectionne,couleurPosition,posI-1,posJ);
-
         }
         if(posJ+1 < width &&tableau[posI][posJ+1] == couleurPosition){
             tableau[posI][posJ+1] = couleurSelectionne;
             modifierLaCouleurParLaCouleurSelectionnee(couleurSelectionne,couleurPosition,posI,posJ+1);
-
         }
         if(posJ-1 > 0 && tableau[posI][posJ-1] == couleurPosition){
             tableau[posI][posJ-1] = couleurSelectionne;
             modifierLaCouleurParLaCouleurSelectionnee(couleurSelectionne,couleurPosition,posI,posJ-1);
-
         }
         */
 
@@ -366,14 +391,14 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
                 i += 200;
             }
 
-                // dessiner boutons retour en arriere
-                paint.setColor(Color.BLACK);
-                canvas.drawRect(widthTailleEcran - tailleCarree, tailleCarree * width + 30, widthTailleEcran, tailleCarree + tailleCarree * width + 30 + tailleCarree, paint);
+            // dessiner boutons retour en arriere
+            paint.setColor(Color.BLACK);
+            canvas.drawRect(widthTailleEcran - tailleCarree, tailleCarree * width + 30, widthTailleEcran, tailleCarree + tailleCarree * width + 30 + tailleCarree, paint);
             if(nombreDeCoupJoue<=Integer.parseInt(gold)) {
-               dessinerNombreDeCoups(Color.YELLOW,gold);
+                dessinerNombreDeCoups(Color.YELLOW,gold);
             }
 
-             if(nombreDeCoupJoue > Integer.parseInt(gold) &&  nombreDeCoupJoue<=Integer.parseInt(silver)) {
+            if(nombreDeCoupJoue > Integer.parseInt(gold) &&  nombreDeCoupJoue<=Integer.parseInt(silver)) {
                 dessinerNombreDeCoups(Color.LTGRAY,silver);
             }
 
@@ -390,21 +415,29 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         int tailleCarree = (int) ((double) widthTailleEcran / 10.6666);
 
 
-            //dessiner ligne meilleurs coups
-            paint.setColor(color1);
-            paint.setStrokeWidth(10.5f);
-            canvas.drawLine(widthTailleEcran - 400, heightTailleEcran - 50, widthTailleEcran - 250, heightTailleEcran - 200, paint);
+        //dessiner ligne meilleurs coups
+        paint.setColor(color1);
+        paint.setStrokeWidth(10.5f);
+        canvas.drawLine(widthTailleEcran - 400, heightTailleEcran - 50, widthTailleEcran - 250, heightTailleEcran - 200, paint);
 
-            //dessiner meilleur coup
-            paint.setColor(color1);
-            paint.setTextSize(100);
-            canvas.drawText(nombreDeCoupOptimal, widthTailleEcran - 300, heightTailleEcran - 50, paint);
+        //dessiner meilleur coup
+        paint.setColor(color1);
+        paint.setTextSize(100);
+        canvas.drawText(nombreDeCoupOptimal, widthTailleEcran - 300, heightTailleEcran - 50, paint);
 
-            //dessiner nombre de coup joué
-            paint.setColor(Color.BLACK);
-            paint.setTextSize(100);
-            canvas.drawText(String.valueOf(nombreDeCoupJoue), widthTailleEcran - 400, heightTailleEcran - 150, paint);
+        //dessiner nombre de coup joué
+        paint.setColor(Color.BLACK);
+        paint.setTextSize(100);
+        canvas.drawText(String.valueOf(nombreDeCoupJoue), widthTailleEcran - 400, heightTailleEcran - 150, paint);
 
+    }
+
+    private void solve(){
+        Page p = new Page(tableau);
+        Solver s = new Solver(p);
+        s.solve();
+        for (int i = 0; i <s.getStepsRequired(); i++)
+        coupSuivant.add(s.getPageStep()[i].getPageMatrix()) ;
     }
 
 
