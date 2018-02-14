@@ -61,15 +61,7 @@ public class GrilleActivity extends AppCompatActivity {
                     String bronze= element2.getAttribute("bronze");
                     grille = new GrilleView(this,width,height,colours,numColours,gold,silver,bronze);
                     setContentView(grille);
-              //      LinearLayout buttonContainer = (LinearLayout) findViewById(R.id.buttonForColors);
-              //      Button button = new Button(this);
-                  /*  button.setBottom(2800);
-                    button.setRight(0);
-                    button.setLeft(150);
-                    button.setTop(2660);
-                 //   button.setBackgroundColor(getResources().getColor(R.color.lightyellow));
-                    button.setText("");
-                    buttonContainer.addView(button);*/
+
                 }
 
 
