@@ -5,14 +5,33 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Picture;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +56,8 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
     private String bronze;
     private SurfaceHolder sh;
     private Context context;
+    private String stage;
+    private String level;
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint paintLine = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int tableau[][];
@@ -45,7 +66,7 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
     private int widthTailleEcran;
     private int heightTailleEcran;
 
-    public GrilleView(Context context, String width, String height, String colours, String numColours, String gold, String silver, String bronze) {
+    public GrilleView(Context context, String width, String height, String colours, String numColours, String gold, String silver, String bronze,String stage, String level) {
         super(context);
         sh = getHolder();
         sh.addCallback(this);
@@ -62,6 +83,8 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         this.gold = gold;
         this.silver = silver;
         this.bronze = bronze;
+        this.level = level;
+        this.stage = stage;
         //récupère la grille qui est stocké dans la variable numColor et fait un tableau à 2 dimensions tableau
         remplirTableau();
         recupererNombreDeCouleurs();
@@ -136,6 +159,8 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
                             }})
                         .setNegativeButton(android.R.string.no, null).show();
 
+                sauvegarderDansBaseDeDonnee(nombreDeCoupJoue);
+
             }
         } else  {
             ChoisirLeChangementDeCouleur(x,y);
@@ -149,6 +174,27 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
 
         }
 
+    }
+
+
+
+    private void sauvegarderDansBaseDeDonnee(int nombreDeCoupJoue) {
+        try {
+            //InputStream is= getClass().getResourceAsStream("/db.csv" ).;
+            File f = new File("/dbs.csv");
+            f.createNewFile();
+            PrintWriter  out = new PrintWriter(f);
+            out.write(stage);
+            out.write(",");
+            out.write(level);
+            out.write(",");
+            out.write(nombreDeCoupJoue);
+
+            out.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void choisirLeRetourEnArriere(float x, float y) {
@@ -209,7 +255,7 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
                 canvas = null;
                 surfaceCreated(this.getHolder());
             }
-            i += 200;
+            i += tailleCarree;
         }
     }
 
@@ -382,19 +428,19 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
                 for (int j = 0; j < width; j++) {
 
                     if (tableau[i][j] == 1) {
-                        paint.setColor(Color.BLUE);
+                        paint.setColor(ContextCompat.getColor(context, R.color.darkred));
                     }
                     if (tableau[i][j] == 2) {
-                        paint.setColor(Color.RED);
+                        paint.setColor(ContextCompat.getColor(context, R.color.lightyellow));
                     }
                     if (tableau[i][j] == 3) {
-                        paint.setColor(Color.YELLOW);
+                        paint.setColor(ContextCompat.getColor(context, R.color.darkorange));
                     }
                     if (tableau[i][j] == 4) {
-                        paint.setColor(Color.CYAN);
+                        paint.setColor(ContextCompat.getColor(context, R.color.darkblue));
                     }
                     if (tableau[i][j] == 5) {
-                        paint.setColor(Color.MAGENTA);
+                        paint.setColor(ContextCompat.getColor(context, R.color.black));
                     }
                     canvas.drawRect(cptx - tailleCarree, cpty, cptx, tailleCarree + cpty, paint);
                     cpty += tailleCarree;
@@ -405,35 +451,39 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
 
             // dessiner boutons changements de couleurs
             int i = 0;
-            //si selectionner augmenter la taille du carré
+
             int t=0;
             for (int couleur : nombreDeCouleus) {
                 t=0;
                 if (couleur == 1) {
-                    paint.setColor(Color.BLUE);
+                    paint.setColor(ContextCompat.getColor(context, R.color.darkred));
                 }
                 if (couleur == 2) {
-                    paint.setColor(Color.RED);
+                    paint.setColor(ContextCompat.getColor(context, R.color.lightyellow));
                 }
                 if (couleur == 3) {
-                    paint.setColor(Color.YELLOW);
+                    paint.setColor(ContextCompat.getColor(context, R.color.darkorange));
                 }
                 if (couleur == 4) {
-                    paint.setColor(Color.CYAN);
+                    paint.setColor(ContextCompat.getColor(context, R.color.darkblue));
                 }
                 if (couleur== 5) {
-                    paint.setColor(Color.MAGENTA);
+                    paint.setColor(ContextCompat.getColor(context, R.color.black));
                 }
+                //si selectionner augmenter la taille du boutton de couleur
                 if(couleur== couleurSelectionne){
                     t+=30;
                 }
                 canvas.drawRect(5 + i-t, tailleCarree * width + 30-t, tailleCarree + i, tailleCarree + tailleCarree * width + 30 + tailleCarree, paint);
-                i += 200;
+                i += tailleCarree;
             }
 
             // dessiner boutons rejouerCoup
-            paint.setColor(Color.BLACK);
-            canvas.drawRect(widthTailleEcran - tailleCarree +40, tailleCarree * width + 30, widthTailleEcran, tailleCarree + tailleCarree * width + 30 + tailleCarree, paint);
+       //     Bitmap b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_rejouer24dp);
+        //    canvas.drawBitmap(b,widthTailleEcran,heightTailleEcran,paint);
+         //
+              paint.setColor(Color.BLACK);
+           canvas.drawRect(widthTailleEcran - tailleCarree +40, tailleCarree * width + 30, widthTailleEcran, tailleCarree + tailleCarree * width + 30 + tailleCarree, paint);
 
             // dessiner boutons retour en arriere
             paint.setColor(Color.WHITE);
