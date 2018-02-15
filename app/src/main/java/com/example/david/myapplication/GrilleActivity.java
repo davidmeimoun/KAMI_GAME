@@ -59,7 +59,7 @@ public class GrilleActivity extends AppCompatActivity {
                     String gold= element2.getAttribute("gold");
                     String silver= element2.getAttribute("silver");
                     String bronze= element2.getAttribute("bronze");
-                    grille = new GrilleView(this,width,height,colours,numColours,gold,silver,bronze);
+                    grille = new GrilleView(this,width,height,colours,numColours,gold,silver,bronze,stage,level);
                     setContentView(grille);
 
                 }
