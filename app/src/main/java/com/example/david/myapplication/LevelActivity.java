@@ -2,6 +2,7 @@ package com.example.david.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -57,12 +57,17 @@ public class LevelActivity extends AppCompatActivity {
 
                     if (element2.getAttribute("name").contains("_")) {
                         tab = element2.getAttribute("name").split("_");
-                        String isNiveauValide = lireDansBaseDeDonnee(tab[1],level);
-                        button.setText(tab[1] + isNiveauValide);
+                        boolean isNiveauValide = lireDansBaseDeDonnee("david", level, element2.getAttribute("name"));
+                        if (isNiveauValide)
+                            button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.dimmedgrey));
+                        button.setText(tab[1]);// + " - " + isNiveauValide );
+
                     } else {
                         tab[0] = element2.getAttribute("name");
-                        String isNiveauValide = lireDansBaseDeDonnee(tab[0],level);
-                        button.setText(tab[0]+ isNiveauValide);
+                        boolean isNiveauValide = lireDansBaseDeDonnee("david", level, element2.getAttribute("name"));
+                        if (isNiveauValide)
+                            button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.dimmedgrey));
+                        button.setText(tab[0]);//+ " - " + isNiveauValide);
                     }
 
                     button.setOnClickListener(new View.OnClickListener() {
@@ -86,11 +91,12 @@ public class LevelActivity extends AppCompatActivity {
 
     }
 
-    private String lireDansBaseDeDonnee(String stage, String level) {
+    private boolean lireDansBaseDeDonnee(String utilisateur, String level, String stage) {
+        String path = getApplicationContext().getFilesDir().getPath() + "/" + "db.csv";
+
         BufferedReader br = null;
         try {
-            File f = new File("/dbs.csv");
-            InputStream is = new FileInputStream(f);
+            InputStream is = new FileInputStream(path);
             br = new BufferedReader(new InputStreamReader(is));
             ;
             String line = "";
@@ -99,9 +105,10 @@ public class LevelActivity extends AppCompatActivity {
 
                 // use comma as separator
                 String[] data = line.split(cvsSplitBy);
-                if (data[0].equals(stage))
-                    if (data[1].equals(level))
-                        return "Validé";
+                if (data[0].equals(utilisateur))
+                    if (data[1].equals(stage))
+                        if (data[2].equals(level))
+                            return true;
 
             }
 
@@ -118,7 +125,8 @@ public class LevelActivity extends AppCompatActivity {
                 }
             }
         }
-        return "";
+        return false;
+
     }
 
 }
