@@ -28,16 +28,29 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 
 public class LevelActivity extends AppCompatActivity {
+    String level;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
 
+        Bundle b = new Bundle();
+        b = getIntent().getExtras();
+        String level = b.getString("level");
+        this.level = level;
+        ajoutDesInfosDansBoutons(level);
+
+
+
+
+    }
+
+    private void ajoutDesInfosDansBoutons(final String level) {
         LinearLayout buttonContainer = (LinearLayout) findViewById(R.id.buttonContainer);
+        buttonContainer.removeAllViews();
         try {
-            Bundle b = new Bundle();
-            b = getIntent().getExtras();
-            final String level = b.getString("level");
+
             InputStream is = getClass().getResourceAsStream("/puzzles/" + level + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -83,14 +96,11 @@ public class LevelActivity extends AppCompatActivity {
 
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
     }
-
     private boolean lireDansBaseDeDonnee(String utilisateur, String level, String stage) {
         String path = getApplicationContext().getFilesDir().getPath() + "/" + "db.csv";
 
@@ -129,4 +139,9 @@ public class LevelActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ajoutDesInfosDansBoutons(this.level);
+    }
 }

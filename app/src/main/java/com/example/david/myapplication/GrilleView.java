@@ -69,10 +69,6 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         //récupère la grille qui est stocké dans la variable numColor et fait un tableau à 2 dimensions tableau
         remplirTableau();
         recupererNombreDeCouleurs();
-        //     this.datasource = new ScoreDataSource(context);
-        //   this.datasource.open();
-
-        // this.values = datasource.getAllScore();
 
 
     }
@@ -94,56 +90,34 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         CharSequence text = "width : " + w + " Height : " + h;
         int duration = Toast.LENGTH_SHORT;
         surfaceCreated(this.getHolder());
-        Toast toast = Toast.makeText(context, text, duration);
-        //  toast.show();
-
-
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
-        Context context = getContext();
-        CharSequence text = "X : " + event.getX() + " Y : " + event.getY();
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        // toast.show();
-
         press(event.getX(), event.getY());
         return super.onTouchEvent(event);
-
     }
 
     public void press(float x, float y) {
-
-
         if (estDanslaGrille(x, y)) {
-
             int ij[] = recupererPositionCouleur(x, y);
             modifierLaCouleurParLaCouleurSelectionnee(couleurSelectionne, ij[0], ij[1]);
             surfaceCreated(this.getHolder());
-
             if (leJeuEstTermine()) {
-
                 new AlertDialog.Builder(context)
                         .setTitle("Bravo")
                         .setMessage("Vous avez fini, voulez vous retourner au menu ? ")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Toast.makeText(context, "Oui", Toast.LENGTH_SHORT).show();
                                 ((Activity) getContext()).finish();
                             }
                         })
                         .setNegativeButton(android.R.string.no, null).show();
-
                 sauvegarderDansBaseDeDonnee("david", nombreDeCoupJoue);
 
             }
@@ -165,7 +139,6 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
     private void sauvegarderDansBaseDeDonnee(String utilisateur, int nombreDeCoupJoue) {
         String toSave = utilisateur + "," + stage + "," + level + "," + nombreDeCoupJoue + "\n";
         String path = this.context.getFilesDir().getPath() + "/" + "db.csv";
-
         try {
             FileOutputStream fos = null;
             File f = new File(path);
@@ -180,8 +153,6 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
 
@@ -219,12 +190,11 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
 
                 new AlertDialog.Builder(context)
                         .setTitle("Bravo")
-                        .setMessage("Vous avez fini, voulez vous retourner au menu ? ")
+                        .setMessage("La solution a été trouvé pour vous, voulez vous retourner au menu ? ")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Toast.makeText(context, "Oui", Toast.LENGTH_SHORT).show();
                                 ((Activity) getContext()).finish();
                             }
                         })
@@ -466,9 +436,6 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
             }
 
             // dessiner boutons rejouerCoup
-            //     Bitmap b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_rejouer24dp);
-            //    canvas.drawBitmap(b,widthTailleEcran,heightTailleEcran,paint);
-            //
             paint.setColor(Color.BLACK);
             canvas.drawRect(widthTailleEcran - tailleCarree + 40, tailleCarree * width + 30, widthTailleEcran, tailleCarree + tailleCarree * width + 30 + tailleCarree, paint);
 
@@ -521,7 +488,5 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         for (int i = 0; i < s.getStepsRequired(); i++)
             coupSuivant.add(s.getPageStep()[i].getPageMatrix());
     }
-
-
 }
 
