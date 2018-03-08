@@ -49,8 +49,9 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
     private int couleurSelectionne = 1;
     private int widthTailleEcran;
     private int heightTailleEcran;
+    private String user;
 
-    public GrilleView(Context context, String width, String height, String colours, String numColours, String gold, String silver, String bronze, String stage, String level) {
+    public GrilleView(Context context, String width, String height, String colours, String numColours, String gold, String silver, String bronze, String stage, String level,String user) {
         super(context);
         sh = getHolder();
         sh.addCallback(this);
@@ -66,6 +67,7 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
         this.bronze = bronze;
         this.level = level;
         this.stage = stage;
+        this.user = user;
         //récupère la grille qui est stocké dans la variable numColor et fait un tableau à 2 dimensions tableau
         remplirTableau();
         recupererNombreDeCouleurs();
@@ -130,21 +132,17 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
             surfaceCreated(this.getHolder());
 
             if (leJeuEstTermine()) {
-
                 new AlertDialog.Builder(context)
                         .setTitle("Bravo")
                         .setMessage("Vous avez fini, voulez vous retourner au menu ? ")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Toast.makeText(context, "Oui", Toast.LENGTH_SHORT).show();
                                 ((Activity) getContext()).finish();
                             }
                         })
                         .setNegativeButton(android.R.string.no, null).show();
-
-                sauvegarderDansBaseDeDonnee("david", nombreDeCoupJoue);
+                sauvegarderDansBaseDeDonnee(user, nombreDeCoupJoue);
 
             }
         } else {
@@ -357,8 +355,7 @@ public class GrilleView extends SurfaceView implements SurfaceHolder.Callback {
 
     private boolean leJeuEstTermine() {
         for (int couleur : nombreDeCouleus) {
-            if (verifMemeCouleur(tableau, couleur)) {
-                return true;
+            if (verifMemeCouleur(tableau, couleur)) {return true;
             }
         }
         return false;

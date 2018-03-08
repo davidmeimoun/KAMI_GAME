@@ -28,16 +28,31 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 
 public class LevelActivity extends AppCompatActivity {
+    String level;
+String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
 
+        Bundle b = new Bundle();
+        b = getIntent().getExtras();
+        String level = b.getString("level");
+        String user = b.getString("user");
+        this.level = level;
+        this.user = user;
+        ajoutDesInfosDansBoutons(level);
+
+
+
+
+    }
+
+    private void ajoutDesInfosDansBoutons(final String level) {
         LinearLayout buttonContainer = (LinearLayout) findViewById(R.id.buttonContainer);
+        buttonContainer.removeAllViews();
         try {
-            Bundle b = new Bundle();
-            b = getIntent().getExtras();
-            final String level = b.getString("level");
+
             InputStream is = getClass().getResourceAsStream("/puzzles/" + level + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -57,14 +72,14 @@ public class LevelActivity extends AppCompatActivity {
 
                     if (element2.getAttribute("name").contains("_")) {
                         tab = element2.getAttribute("name").split("_");
-                        boolean isNiveauValide = lireDansBaseDeDonnee("david", level, element2.getAttribute("name"));
+                        boolean isNiveauValide = lireDansBaseDeDonnee(user, level, element2.getAttribute("name"));
                         if (isNiveauValide)
                             button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.dimmedgrey));
                         button.setText(tab[1]);// + " - " + isNiveauValide );
 
                     } else {
                         tab[0] = element2.getAttribute("name");
-                        boolean isNiveauValide = lireDansBaseDeDonnee("david", level, element2.getAttribute("name"));
+                        boolean isNiveauValide = lireDansBaseDeDonnee(user, level, element2.getAttribute("name"));
                         if (isNiveauValide)
                             button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.dimmedgrey));
                         button.setText(tab[0]);//+ " - " + isNiveauValide);
@@ -76,6 +91,7 @@ public class LevelActivity extends AppCompatActivity {
                             Intent i = new Intent(LevelActivity.this, GrilleActivity.class);
                             i.putExtra("stage", element2.getAttribute("name"));
                             i.putExtra("level", level);
+                            i.putExtra("user", user);
                             startActivity(i);
                         }
                     });
@@ -83,14 +99,11 @@ public class LevelActivity extends AppCompatActivity {
 
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
     }
-
     private boolean lireDansBaseDeDonnee(String utilisateur, String level, String stage) {
         String path = getApplicationContext().getFilesDir().getPath() + "/" + "db.csv";
 
@@ -129,4 +142,9 @@ public class LevelActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ajoutDesInfosDansBoutons(this.level);
+    }
 }

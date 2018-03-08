@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="368dp"
+        android:layout_height="434dp"
+        android:layout_marginTop="50dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="247dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="0dp"
+        android:paddingLeft="0dp"
+        android:text="Choisissez votre utilisateur"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="20dp" />
+
+    <Button
+        android:id="@+id/buttonAjouter"
+        android:layout_width="70dp"
+        android:layout_height="33dp"
+        android:layout_alignEnd="@+id/listView"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="20dp"
+        android:text="Ajouter"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="5dp" />
+</RelativeLayout>

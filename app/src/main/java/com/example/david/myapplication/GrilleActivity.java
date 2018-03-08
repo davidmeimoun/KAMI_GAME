@@ -38,6 +38,7 @@ public class GrilleActivity extends AppCompatActivity {
         b = getIntent().getExtras();
         String stage = b.getString("stage");
         String level = b.getString("level");
+        String user = b.getString("user");
         try {
             InputStream is = getClass().getResourceAsStream("/puzzles/" + level+"/"+stage + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -59,7 +60,7 @@ public class GrilleActivity extends AppCompatActivity {
                     String gold= element2.getAttribute("gold");
                     String silver= element2.getAttribute("silver");
                     String bronze= element2.getAttribute("bronze");
-                    grille = new GrilleView(this,width,height,colours,numColours,gold,silver,bronze,stage,level);
+                    grille = new GrilleView(this,width,height,colours,numColours,gold,silver,bronze,stage,level,user);
                     setContentView(grille);
 
                 }

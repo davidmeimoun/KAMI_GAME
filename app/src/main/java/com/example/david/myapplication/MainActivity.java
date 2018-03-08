@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kami);
-
+        Bundle b = new Bundle();
+        b = getIntent().getExtras();
+        final String user = b.getString("user");
+        TextView textView = (TextView)findViewById(R.id.messageBienvenu);
+        textView.setText("Bienvenue "+ user);
         LinearLayout buttonContainer = (LinearLayout) findViewById(R.id.buttonContainer);
         try {
             InputStream is = getClass().getResourceAsStream("/puzzles/CompletionData.xml");
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent i = new Intent(MainActivity.this, LevelActivity.class);
                             i.putExtra("level", "Stage" + element2.getAttribute("name"));
+                            i.putExtra("user", user);
                             startActivity(i);
                         }
                     });
