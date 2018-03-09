@@ -1,10 +1,5 @@
 package com.example.david.myapplication;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -12,199 +7,116 @@ import java.util.HashSet;
  */
 
 public class Page {
-    private int[][] pageMatrix;
-    private int[][] islandMap;
-    private int width;
-    private int height;
-    private int islandCount;
+    public int[][] pageMatrix;
+    public int width;
+    public int height;
+    public int compterIsland;
     public HashSet<Integer> colors;
+    private int[][] graphe;
 
     public Page(int[][] page) {
         pageMatrix = page;
-        width = getPageMatrix(0).length;
-        height = getPageMatrix().length;
+        width = pageMatrix[0].length;
+        height = pageMatrix.length;
 
-        createIslandMap();
+        creategraphe();
     }
 
     public Page(Page p) {
-        width = p.getWidth();
-        height = p.getHeight();
-        islandCount = p.getIslandCount();
+        width = p.width;
+        height = p.height;
+        compterIsland = p.getcompterIsland();
         pageMatrix = new int[height][width];
-        islandMap = new int[height][width];
-        for (int r = 0; r < getHeight(); r++) {
-            for (int c = 0; c < getWidth(); c++) {
-                pageMatrix[r][c] = p.getPageMatrix(r, c);
-                islandMap[r][c] = p.getIslandMap(r, c);
-            }
-        }
-    }
-
-    public static int[][] fileToArray(String fileName) throws IOException {
-        ArrayList<ArrayList<Integer>> rows = new ArrayList<ArrayList<Integer>>();
-        FileInputStream inFile = null;
-        BufferedReader reader = null;
-        try {
-            inFile = new FileInputStream(fileName);
-            reader = new BufferedReader(new InputStreamReader(inFile));
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                ArrayList<Integer> row = new ArrayList<Integer>();
-                for (int i = 0; i < line.length(); i++) {
-                    row.add(Character.getNumericValue(line.charAt(i)));
-                }
-                rows.add(row);
-            }
-        } finally {
-            if (inFile != null) {
-                reader.close();
-                inFile.close();
-            }
-        }
-        int height = rows.size();
-        int[][] m = new int[height][];
+        graphe = new int[height][width];
         for (int r = 0; r < height; r++) {
-            int width = rows.get(r).size();
-            m[r] = new int[width];
             for (int c = 0; c < width; c++) {
-                m[r][c] = rows.get(r).get(c);
+                pageMatrix[r][c] = p.pageMatrix[r][c];
+                graphe[r][c] = p.getgraphe(r, c);
             }
         }
-        return m;
     }
 
-    public int[][] getPageMatrix() {
-        return pageMatrix;
+
+    public int getgraphe(int r, int c) {
+        return graphe[r][c];
     }
 
-    public int[] getPageMatrix(int r) {
-        return pageMatrix[r];
-    }
 
-    public int getPageMatrix(int r, int c) {
-        return pageMatrix[r][c];
-    }
-
-    public int[][] getIslandMap() {
-        return islandMap;
-    }
-
-    public int[] getIslandMap(int r) {
-        return islandMap[r];
-    }
-
-    public int getIslandMap(int r, int c) {
-        return islandMap[r][c];
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public int getIslandCount() {
-        return islandCount;
+    public int getcompterIsland() {
+        return compterIsland;
     }
 
     public int getColorCount() {
         return colors.size();
     }
 
-    private void createIslandMap() {
-        initializeIslandMap();
-        islandCount = 1;
+    private void creategraphe() {
+        initialiserGraphe();
+        compterIsland = 1;
         colors = new HashSet<Integer>();
-        for (int r = 0; r < getHeight(); r++) {
-            for (int c = 0; c < getWidth(); c++) {
-                int currentIslandColor = getPageMatrix(r, c);
-                if (checkAndMark(r, c, currentIslandColor)) {
-                    islandCount++;
-                    colors.add(currentIslandColor);
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                int couleurIslandActuelle = pageMatrix[r][c];
+                if (verifierEtCocher(r, c, couleurIslandActuelle)) {
+                    compterIsland++;
+                    colors.add(couleurIslandActuelle);
                 }
             }
         }
-        islandCount -= 1;
+        compterIsland -= 1;
     }
 
-    private boolean checkAndMark(int r, int c, int islandColor) {
-        if (boundLimitExceeded(r, c)) {
+    private boolean verifierEtCocher(int r, int c, int islandColor) {
+        if ((c < 0 || r < 0 || c >= width || r >= height)) {
             return false;
         }
-        if (getIslandMap(r, c) != 0) {
+        if (getgraphe(r, c) != 0) {
             return false;
         } else {
-            if (getPageMatrix(r, c) == islandColor) {
-                markPoint(r, c, islandCount, islandColor);
+            if (pageMatrix[r][c] == islandColor) {
+                graphe[r][c] = compterIsland;
             } else {
                 return false;
             }
-            checkAndMark(r, c + 1, islandColor);
-            checkAndMark(r + 1, c, islandColor);
-            checkAndMark(r, c - 1, islandColor);
-            checkAndMark(r - 1, c, islandColor);
+            verifierEtCocher(r, c + 1, islandColor);
+            verifierEtCocher(r + 1, c, islandColor);
+            verifierEtCocher(r, c - 1, islandColor);
+            verifierEtCocher(r - 1, c, islandColor);
             return true;
         }
     }
 
-    private boolean boundLimitExceeded(int r, int c) {
-        return (c < 0 || r < 0 || c >= getWidth() || r >= getHeight());
-    }
 
-    private void markPoint(int r, int c, int islandID, int currentIslandColor) {
-        islandMap[r][c] = islandID;
-    }
-
-    private void initializeIslandMap() {
-        islandMap = new int[height][width];
-        for (int r = 0; r < getHeight(); r++) {
-            for (int c = 0; c < getWidth(); c++) {
-                islandMap[r][c] = 0;
+    private void initialiserGraphe() {
+        graphe = new int[height][width];
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                graphe[r][c] = 0;
             }
         }
     }
 
-    public void printMatrix(int[][] m) {
-        System.out.println("=======");
-        for (int r = 0; r < m.length; r++) {
-            for (int c = 0; c < m[0].length; c++) {
-                System.out.printf("%d ", m[r][c]);
-            }
-            System.out.println();
-        }
-        System.out.println("=======");
-    }
 
-    public void print() {
-        printMatrix(getPageMatrix());
-    }
-
-    public Page flipIsland(int islandID, int islandColor) {
+    public Page island(int islandID, int islandColor) {
         Page p = new Page(this);
-        for (int r = 0; r < getHeight(); r++) {
-            for (int c = 0; c < getWidth(); c++) {
-                if (getIslandMap(r, c) == islandID) {
-                    p.flipPoint(r, c, islandColor);
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                if (getgraphe(r, c) == islandID) {
+                    p.pageMatrix[r][c] = islandColor;
                 }
             }
         }
-        p.createIslandMap();
+        p.creategraphe();
         return p;
     }
 
-    private void flipPoint(int r, int c, int islandColor) {
-        pageMatrix[r][c] = islandColor;
-    }
+
 
     public int getIslandColor(int islandID) {
-        for (int r = 0; r < getHeight(); r++) {
-            for (int c = 0; c < getWidth(); c++) {
-                if (getIslandMap(r, c) == islandID) {
-                    return getPageMatrix(r, c);
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                if (getgraphe(r, c) == islandID) {
+                    return pageMatrix[r][c];
                 }
             }
         }

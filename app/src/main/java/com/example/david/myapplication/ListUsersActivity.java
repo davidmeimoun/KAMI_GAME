@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import java.io.BufferedReader;
@@ -24,7 +23,7 @@ import java.util.List;
  */
 
 public class ListUsersActivity extends AppCompatActivity {
-    private Button btn_commencer ;
+    private Button btn_commencer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +64,7 @@ public class ListUsersActivity extends AppCompatActivity {
 
     private List<String> lireDansBaseDeDonnee() {
         String path = getApplicationContext().getFilesDir().getPath() + "/" + "db.csv";
-    List<String> listUsers = new ArrayList<String>();
+        List<String> listUsers = new ArrayList<String>();
         BufferedReader br = null;
         try {
             InputStream is = new FileInputStream(path);
@@ -77,7 +76,7 @@ public class ListUsersActivity extends AppCompatActivity {
 
                 // use comma as separator
                 String[] data = line.split(cvsSplitBy);
-                if(!listUsers.contains(data[0]))
+                if (!listUsers.contains(data[0]))
                     listUsers.add(data[0]);
 
             }

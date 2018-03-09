@@ -29,7 +29,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class LevelActivity extends AppCompatActivity {
     String level;
-String user;
+    String user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +43,6 @@ String user;
         this.level = level;
         this.user = user;
         ajoutDesInfosDansBoutons(level);
-
-
 
 
     }
@@ -104,6 +103,8 @@ String user;
         }
 
     }
+
+
     private boolean lireDansBaseDeDonnee(String utilisateur, String level, String stage) {
         String path = getApplicationContext().getFilesDir().getPath() + "/" + "db.csv";
 

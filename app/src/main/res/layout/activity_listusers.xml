@@ -19,13 +19,14 @@
         android:layout_marginLeft="0dp"
         android:paddingLeft="0dp"
         android:text="Choisissez votre utilisateur"
+        android:textSize="20sp"
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="20dp" />
 
     <Button
         android:id="@+id/buttonAjouter"
-        android:layout_width="70dp"
-        android:layout_height="33dp"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
         android:layout_alignEnd="@+id/listView"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="20dp"

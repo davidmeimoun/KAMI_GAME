@@ -4,10 +4,12 @@ package com.example.david.myapplication;
  */
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         Bundle b = new Bundle();
         b = getIntent().getExtras();
         final String user = b.getString("user");
-        TextView textView = (TextView)findViewById(R.id.messageBienvenu);
-        textView.setText("Bienvenue "+ user);
+        TextView textView = (TextView) findViewById(R.id.messageBienvenu);
+        textView.setTextColor(Color.WHITE);
+        textView.setTextSize(12);
+        textView.setText("Bienvenue " + user);
         LinearLayout buttonContainer = (LinearLayout) findViewById(R.id.buttonContainer);
         try {
             InputStream is = getClass().getResourceAsStream("/puzzles/CompletionData.xml");
@@ -70,6 +74,15 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        Button btn_retour = (Button) findViewById(R.id.button);
+        btn_retour.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+                EditText user = (EditText) findViewById(R.id.userName);
+                Intent i = new Intent(MainActivity.this, ListUsersActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }
